@@ -1,22 +1,26 @@
 import { Avatar, Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import db from '../firebase';
+import { useStateValue } from '../StateProvider';
 import '../Styles/TweetBox.css';
+import firebase from 'firebase'
+
 
 function TweetBox() {
 
     const [newTweetMsg, setNewTweetMsg] = useState('');
     const [newTweetImg, setNewTweetImg] = useState('');
-
+    const [{user} , dispatch] = useStateValue();
+    
     const sendTweet = (evt) => {
         evt.preventDefault();
         db.collection('posts').add({
-            displayname: 'Nandan',
-            username: 'nandanhegade',
+            displayname: user.displayName,
+            username: user.email,
             verified: true,
-            timestamp: '1hr',
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             text: newTweetMsg,
-            avatar: '',
+            avatar: user.photoURL,
             image: newTweetImg
         });
         setNewTweetImg('');

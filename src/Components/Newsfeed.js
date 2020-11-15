@@ -10,7 +10,7 @@ function Newsfeed() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        db.collection('posts').onSnapshot(snapshot => (
+        db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => (
             setPosts(snapshot.docs.map(doc => doc.data()))
         ))
     }, []);
@@ -22,7 +22,7 @@ function Newsfeed() {
             </div>
             <TweetBox/>
             <FlipMove>
-                {posts.map(post => (
+                {posts?.map(post => (
                     <NewsfeedPosts 
                         key = {post.text}
                         displayname = {post.displayname} 

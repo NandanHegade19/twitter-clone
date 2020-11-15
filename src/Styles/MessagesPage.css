@@ -1,0 +1,51 @@
+.message{
+    flex: 0.5;
+}
+
+.message__input{
+    display: flex;
+    align-items: center;
+    background-color: var(--twitter-background);
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.message__input > input{
+    border: none;
+    background-color: var(--twitter-background);
+}
+.hr{
+    
+    margin-top: 30px;
+}
+.message__searchicon {
+    color: gray;
+}
+.messagebox {
+    display: flex;
+    align-items: center;
+    margin: 50px;
+    flex-direction: column;
+}
+
+.messagebox > h4 {
+    color: gray;
+    padding: 20px;
+    text-align: center;
+}
+
+.messagebtn {
+    background-color: var(--twitter-color) !important;
+    border: none !important;
+    color: white;
+    font-weight: 600 !important;
+    font-size: medium;
+    text-transform: inherit !important;
+    border-radius: 30px !important;
+    height: 50px !important;
+    margin-top: 20px !important;
+    width: 50%;
+    cursor: pointer;
+}
